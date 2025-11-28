@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>FELIZ CUMPLE</title>
+  <style>
+    body {
+      background-color: #FFEBEE; /* fondo pastel rosa claro */
+      font-family: 'Comic Sans MS', sans-serif;
+      text-align: center;
+      margin: 0; padding: 20px;
+    }
+    h1 {
+      color: #D81B60;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    /* Caja de regalo */
+    #gift-box {
+      width: 180px; height: 180px;
+      background-color: #FFD1DC; /* pastel rosa */
+      position: relative;
+      margin: 0 auto;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    /* Cintas del regalo (vertical y horizontal) */
+    #gift-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50%;
+      width: 30px; height: 180px;
+      background-color: #FFB6C1; /* cinta */
+      transform: translateX(-50%);
+    }
+    #gift-box::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 0;
+      width: 180px; height: 30px;
+      background-color: #FFB6C1; /* cinta */
+      transform: translateY(-50%);
+    }
+    /* Sección de la sorpresa (oculta inicialmente) */
+    #cake-section {
+      display: none;
+      margin-top: 20px;
+    }
+    #cake {
+      width: 300px;
+      max-width: 80%;
+      margin-top: 10px;
+    }
+    #wish-text {
+      margin: 15px 20px;
+      font-size: 1.2em;
+      color: #444;
+    }
+    /* Vela animada */
+    #candle-container {
+      display: inline-block;
+      position: relative;
+      margin-top: 20px;
+    }
+    #candle {
+      width: 10px; height: 40px;
+      background-color: #FFF;
+      border-radius: 5px;
+      box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+      margin: 0 auto;
+    }
+    #flame {
+      width: 12px; height: 20px;
+      background: radial-gradient(circle at 50% 0%, #FFEB3B, #F57F17 60%, transparent 80%);
+      border-radius: 50% 50% 50% 50%;
+      margin: -20px auto 0 auto;
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { opacity: 0.8; transform: scale(1.0); }
+      100% { opacity: 0.5; transform: scale(1.2); }
+    }
+    /* Panda en esquina inferior derecha */
+    #panda {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Felices 25 Nea <3</h1>
+  <h1>Te mando un abrazo de aquí al cielo y espero que tengas un día lleno de amor,
+    Te aprecio mucho mucho y aunque este detalle no es una gran cosa,
+    quiero que te llegue y te saque al menos u a sonrisita...</h1>
+
+  <!-- Caja de regalo interactiva -->
+  <div id="gift-box" title="¡Haz clic para abrir el regalo!"></div>
+
+  <!-- Contenido sorpresa (inicia oculto) -->
+  <div id="cake-section">
+    <!-- Imagen kawaii de tarta (Pixabay) -->
+    <img id="cake" src="https://cdn.pixabay.com/photo/2021/02/01/17/45/cake-5971443_1280.jpg" alt="Tarta kawaii con carita feliz">
+    <p id="wish-text"> Espero que tus 25 añitos estén llenos de amor y recuerdos felices,
+    disfruta mucho <3 Cierra los ojos e imagina una velita de verdad, y obviamente... pide un deseo...</p>
+    <!-- Vela animada -->
+    <div id="candle-container">
+      <div id="candle"></div>
+      <div id="flame"></div>
+    </div>
+  </div>
+
+  <!-- Panda kawaii animado (Pixabay GIF) -->
+  <img id="panda" src="https://cdn.pixabay.com/animation/2023/05/25/09/35/09-35-39-25_512.gif" alt="Panda kawaii saludando">
+
+  <script>
+    // Al hacer clic en la caja de regalo, ocultarla y mostrar la sorpresa
+    document.getElementById("gift-box").addEventListener("click", function() {
+      this.style.display = 'none';
+      document.getElementById("cake-section").style.display = 'block';
+    });
+    // Al hacer clic en la llama, hacerla desaparecer (la vela se apaga)
+    document.getElementById("flame").addEventListener("click", function() {
+      this.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
